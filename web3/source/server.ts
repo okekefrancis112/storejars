@@ -1,4 +1,6 @@
 import { ApolloServer } from 'apollo-server';
+import { InMemoryLRUCache } from '@apollo/utils.keyvaluecache';
+
 import { typeDefs } from './graphqls/typeDefs.graphql';
 import { resolvers } from './graphqls/resolvers.graphql';
 
@@ -10,11 +12,19 @@ import { resolvers } from './graphqls/resolvers.graphql';
 const startServer = async (): Promise<void> => {
 
   // Initialize Apollo Server
-  const server = new ApolloServer({ typeDefs, resolvers });
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    persistedQueries: {
+        cache: new InMemoryLRUCache({ maxSize: 1000 }), // Use bounded cache
+      },
+    });
 
   // Start the server
-  server.listen({ port: 6000 }).then(({ url }: { url: string }) => {
-    console.log(`🚀 Server ready at ${url}`);
+  const PORT = process.env.PORT || 6000; // Fallback to 6000 for local development
+
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Server ready at http://localhost:${PORT}/`);
   });
 };
 

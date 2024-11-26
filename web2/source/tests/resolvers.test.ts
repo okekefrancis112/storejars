@@ -2,29 +2,29 @@ import { resolvers } from '../graphqls/resolvers.graphql';
 import { User } from '../models/user.models ';
 // import { connectDB } from '../db/connection';
 import mongoose from 'mongoose';
-import { MongoMemoryServer } from 'mongodb-memory-server';
+// import { MongoMemoryServer } from 'mongodb-memory-server';
 
-let mongoServer: MongoMemoryServer;
+// let mongoServer: MongoMemoryServer;
 
-beforeAll(async () => {
-  // Start an in-memory MongoDB instance
-  mongoServer = await MongoMemoryServer.create();
+// beforeAll(async () => {
+//   // Start an in-memory MongoDB instance
+//   mongoServer = await MongoMemoryServer.create();
 
-  // Get the URI of the in-memory server and connect to it
-  const uri = mongoServer.getUri();
-  await mongoose.connect(uri, {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
-  });
+//   // Get the URI of the in-memory server and connect to it
+//   const uri = mongoServer.getUri();
+//   await mongoose.connect(uri, {
+//     // useNewUrlParser: true,
+//     // useUnifiedTopology: true,
+//   });
 
-  console.log(`In-memory MongoDB started at ${uri}`);
-});
+//   console.log(`In-memory MongoDB started at ${uri}`);
+// });
 
 afterAll(async () => {
   // Cleanup database and stop the in-memory MongoDB instance
   await mongoose.connection.dropDatabase();
   await mongoose.disconnect();
-  await mongoServer.stop();
+  // await mongoServer.stop();
   console.log('In-memory MongoDB stopped');
 });
 

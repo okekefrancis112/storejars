@@ -11,16 +11,19 @@ let attempts = 0;
 
 const MONGO_CONNECT_URL = env.isTest ? MONGO_URL_TEST : MONGO_URL;
 
+/**
+ * ==========================================================================
+ * ------------------------------ INIT-DATABASE -----------------------------
+ * ==========================================================================
+ */
 export const initDatabase = async () =>
     connect(`${MONGO_CONNECT_URL}`, {
       connectTimeoutMS: 20000,
-    //   keepAlive: true,
       socketTimeoutMS: 0,
       dbName: MONGO_DB_NAME,
     })
       .then(({ connection }) => {
         logger.info(
-        //   `Successfully Connected to MongoDB. ${connection.host}:${connection.port}/${connection.db.databaseName}`
           `Successfully Connected to MongoDB. ${connection.host}:${connection.port}/${MONGO_DB_NAME}`
         );
       })

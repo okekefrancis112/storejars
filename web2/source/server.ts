@@ -5,10 +5,10 @@ import { resolvers } from './graphqls/resolvers.graphql';
 import { InMemoryLRUCache } from '@apollo/utils.keyvaluecache';
 
 
-/***
- *
- *
- * Create Server
+/**
+ * ==========================================================================
+ * ---------------------------- CREATE SERVER -------------------------------
+ * ==========================================================================
  */
 const startServer = async (): Promise<void> => {
 
@@ -19,6 +19,7 @@ const startServer = async (): Promise<void> => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
+    introspection: true,
     persistedQueries: {
         cache: new InMemoryLRUCache({ maxSize: 1000 }), // Use bounded cache
       },

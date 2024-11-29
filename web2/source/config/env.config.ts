@@ -5,9 +5,11 @@ import Logger from "../util/logger";
 config({ path: path.resolve(__dirname, "../../.env") });
 import { Namespaces } from "../constants/namespace.constant";
 
-// export const env = (name: string, defaultValue = '') => process.env[name] ?? defaultValue;
-
-// environment
+/**
+ * ==========================================================================
+ * ------------------------------ ENVIRONMENT -------------------------------
+ * ==========================================================================
+ */
 export const env = {
     isDev: String(process.env.NODE_ENV).toLowerCase().includes("development"),
     isTest: String(process.env.NODE_ENV).toLowerCase().includes("test"),

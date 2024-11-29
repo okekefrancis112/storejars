@@ -4,6 +4,11 @@ const dateFormat = () => {
     return new Date(Date.now()).toUTCString();
 };
 
+/**
+ * =============================================================================
+ * ------------------------------ LOGGER SERVICE -------------------------------
+ * =============================================================================
+ */
 class LoggerService {
     [x: string]: any;
     constructor(route: any, namespace: any = undefined) {

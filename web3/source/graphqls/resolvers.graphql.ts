@@ -1,10 +1,15 @@
 import { contract } from "../controllers/blockchain.controllers";
 
-// Resolvers
+/**
+ * ================================================================================
+ * --------------------------------- RESOLVERS ------------------------------------
+ * ================================================================================
+ */
 export const resolvers = {
     Query: {
         getCount: async () => {
-            return await contract.getCount();
+            const count =  await contract.getCount();
+            return Number(count);
         },
     },
     Mutation: {

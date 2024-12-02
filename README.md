@@ -57,8 +57,15 @@ This project demonstrates a backend implementation combining **Web3 (blockchain)
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-repo/graphql-web3-web2-backend.git
-cd graphql-web3-web2-backend
+git clone https://github.com/okekefrancis112/storejars
+cd web3
+```
+
+### or
+
+```bash
+git clone https://github.com/okekefrancis112/storejars
+cd web2
 ```
 
 ### 2. Install the dependencies
@@ -79,22 +86,3 @@ INFURA_API_URL=https://goerli.infura.io/v3/your-infura-project-id
 ```bash
 npm run dev:user
 ```
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/your-repo/graphql-web3-web2-backend.git
-cd graphql-web3-web2-backend
-```
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/your-repo/graphql-web3-web2-backend.git
-cd graphql-web3-web2-backend
-```
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/your-repo/graphql-web3-web2-backend.git
-cd graphql-web3-web2-backend
-```
-
